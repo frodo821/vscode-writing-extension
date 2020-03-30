@@ -7,6 +7,6 @@ export interface Word {
 }
 
 export interface DatabaseConnector {
-  getThesaurus($caption: string, $reading?: string): Promise<Word[]>;
+  getThesaurus($caption: string, $reading?: string): Word[];
   dispose(): void;
 }

@@ -27,7 +27,7 @@ export default class CompletionItemProvider
     }
     const line = document.lineAt(position.line);
     const words = this.tokenizer.self.tokenize(line.text);
-    let charPos = position.character + 2;
+    let charPos = position.character + 1;
     let word = words.find((it) => {
       return (
         it.word_position <= charPos &&
@@ -37,7 +37,7 @@ export default class CompletionItemProvider
     if (!word) {
       return;
     }
-    const thesaurus = await this.database.self.getThesaurus(
+    const thesaurus = this.database.self.getThesaurus(
       word.basic_form,
       word.reading
     );
@@ -52,6 +52,7 @@ export default class CompletionItemProvider
           pos.translate({ characterDelta: word?.surface_form.length })
         ),
         kind: vscode.CompletionItemKind.Snippet,
+        filterText: word?.surface_form,
       };
     });
   }

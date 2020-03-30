@@ -6,4 +6,7 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 
 ## [Unreleased]
 
-- Initial release
+- v0.0.4 Add license
+- v0.0.3 Replace thesaurus dictionary [Current Release]
+- v0.0.2 Implementing thesaurus completion
+- v0.0.1 Initial release
